@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "lib": ["dom", "es2017"],
+    "declaration": false,
+    "noImplicitAny": false,
+    "inlineSourceMap": true
+  },
+  "include": ["scripts/**/*.ts", "src/**/*.ts", "node_modules/lodash-es/**/*.js"]
+}

@@ -1,0 +1,100 @@
+#adblock-modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.5);
+
+  .content {
+    background-color: #F5F5F5;
+    margin: auto;
+    padding: 20px 40px;
+    border: 1px solid #888;
+    width: 50%;
+    position: relative;
+    color: #0D0C0C;
+    font-family: Roboto, 'sans-serif';
+    border-radius: 5px;
+    max-height: 70vh;
+    overflow: auto;
+
+    .icon {
+      width: 96px;
+      height: 96px;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .subtitle {
+      padding: 5px 20px;
+      font-weight: lighter;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 20px;
+      margin-bottom: 30px;
+
+      button {
+        background: #bdc3c7;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        margin: 0 10px;
+        flex: 1;
+        padding: 10px 15px;
+        color: #2c3e50;
+        font-size: 1rem;
+
+        &:hover {
+          cursor: pointer;
+          color: #ecf0f1;
+          -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+          -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+          box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+        }
+      }
+    }
+
+    .close-button {
+      position: absolute;
+      right: -12px;
+      top: -12px;
+      width: 24px;
+      height: 24px;
+      background: #F5F5F5;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #111111;
+      border: 1px solid #111111;
+      font-weight: bold;
+      cursor: default;
+
+      &:hover {
+        cursor: pointer;
+        background: #DCDCDC;
+      }
+    }
+
+    footer.footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #7f8c8d;
+      cursor: default;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "ad-blocker-detection",
+  "version": "1.0.0",
+  "description": "Feature for detecting ad blocker and displaying custom message from our user",
+  "main": "script/index.js",
+  "scripts": {
+    "test": "env TS_NODE_PROJECT=\"tsconfig.testing.json\" mocha --require ts-node/register 'src/tests/**/*.ts'",
+    "watch": "webpack --watch --progress --config webpack.config.js --mode=development",
+    "dev": "webpack --config webpack.config.js --mode=development",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "Dario Knezovic",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/lodash": "^4.14.168",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "file-loader": "^6.2.0",
+    "jsdom": "^16.5.1",
+    "mocha": "^8.3.2",
+    "node-sass": "^5.0.0",
+    "nyc": "^15.1.0",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "ts-loader": "^8.0.18",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "webpack": "^5.27.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "css-loader": "^5.1.3",
+    "style-loader": "^2.0.0"
+  }
+}
