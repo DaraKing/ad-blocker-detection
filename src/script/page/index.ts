@@ -9,10 +9,6 @@ class Page {
             <button>Register</button>
             <button id="turn-off-adblocker">Turn off Adblocker</button>
         </div>
-        <hr/>
-        <footer class="footer">
-            &copy; AdBlocker
-        </footer>
         `;
     }
 

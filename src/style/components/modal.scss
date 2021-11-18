@@ -13,56 +13,65 @@
   .content {
     background-color: #F5F5F5;
     margin: auto;
-    padding: 20px 40px;
     border: 1px solid #888;
     width: 50%;
     position: relative;
     color: #0D0C0C;
     font-family: Roboto, 'sans-serif';
     border-radius: 5px;
+    height: 500px;
     max-height: 70vh;
-    overflow: auto;
 
-    .icon {
-      width: 96px;
-      height: 96px;
-      display: block;
-      margin: 20px auto;
+    .header, .footer {
+      height: 60px;
     }
 
-    .title {
-      text-align: center;
-    }
+    .body {
+      height: 350px;
+      overflow: auto;
+      padding: 20px 40px;
 
-    .subtitle {
-      padding: 5px 20px;
-      font-weight: lighter;
-    }
+      .icon {
+        width: 96px;
+        height: 96px;
+        display: block;
+        margin: 20px auto;
+      }
 
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-top: 20px;
-      margin-bottom: 30px;
+      .title {
+        text-align: center;
+      }
 
-      button {
-        background: #bdc3c7;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        margin: 0 10px;
-        flex: 1;
-        padding: 10px 15px;
-        color: #2c3e50;
-        font-size: 1rem;
+      .subtitle {
+        padding: 5px 20px;
+        font-weight: lighter;
+      }
 
-        &:hover {
-          cursor: pointer;
-          color: #ecf0f1;
-          -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
-          -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
-          box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        button {
+          background: #bdc3c7;
+          border: none;
+          outline: none;
+          border-radius: 5px;
+          margin: 0 10px;
+          flex: 1;
+          padding: 10px 15px;
+          color: #2c3e50;
+          font-size: 1rem;
+
+          &:hover {
+            cursor: pointer;
+            color: #ecf0f1;
+            -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+            -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+            box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+          }
         }
       }
     }

@@ -1,6 +1,9 @@
-const contants = {
+const constants = {
     popup: {
         id: "adblock-modal",
+        headerClass: "header",
+        bodyClass: "body",
+        footerClass: "footer",
         contentClasses: ["content"],
         closeButtonClass: "close-button",
         backButtonClass: "back-button"
@@ -11,6 +14,6 @@ const contants = {
     }
 };
 
-Object.freeze(contants);
+Object.freeze(constants);
 
-export default contants;
+export default constants;
