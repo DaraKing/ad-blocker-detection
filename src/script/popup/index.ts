@@ -35,6 +35,9 @@ class Popup {
         this.content.appendChild(this.header);
         this.content.appendChild(this.body);
         this.content.appendChild(this.footer);
+        if (this.hasCloseButton) {
+            this.content.appendChild(this.generateCloseButton())
+        }
 
         this.popup.appendChild(this.content);
 
@@ -53,10 +56,6 @@ class Popup {
                 break;
             default:
                 console.error("[404] Page not found!")
-        }
-
-        if (this.hasCloseButton) {
-            this.content.appendChild(this.generateCloseButton())
         }
 
         document.body.appendChild(this.popup);
@@ -84,7 +83,6 @@ class Popup {
     }
 
     protected changePage(page: string): void {
-        console.log(page)
         this.currentPage = page;
         this.detachEvents();
         this.pageRender();
@@ -105,6 +103,7 @@ class Popup {
     }
 
     protected closeModal(e?: Event): void {
+        console.log("aaaa")
         this.content = null;
 
         this.detachEvents();

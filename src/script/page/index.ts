@@ -15,7 +15,7 @@ class Page {
     public renderTurnOffAdBlocker(): string {
 
         return `
-            <div id="turn-off-adblocker">
+            <div id="page-turn-off-adblocker">
                 <section>
                     <img src='./static/icons/ad-block.svg' class='icon' alt='AdBlock icon' />
                     <h3>Disable Adblockers</h3>
