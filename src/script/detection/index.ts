@@ -1,12 +1,27 @@
+import { QS } from "../helpers/DOM";
+import constants from "../constants/index";
+
 class Detection {
     adBlockEnabled: boolean
+    customerId: string
 
     constructor() {
         this.adBlockEnabled = false;
+        this.initiate();
+    }
+
+    initiate() {
+        const scriptTag = document.currentScript || QS(`#${constants.script.id}`);
+        this.customerId = scriptTag.getAttribute(constants.script.customerIdAttribute);
     }
 
     async check(): Promise<void> {
         return new Promise<void>((resolve) => {
+            // If customer ID is not provided, terminate further actions
+            if (!this.customerId) {
+                resolve();
+            }
+
             // Create a new script element
             const script = document.createElement('script');
             script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
@@ -14,14 +29,12 @@ class Detection {
             // Set up an onerror event handler
             script.onerror = () => {
                 this.adBlockEnabled = true; // Set the flag to true if the script fails to load
-                console.log('Adblocker detected');
                 resolve();
             };
 
             // Set up an onload event handler
             script.onload = () => {
                 this.adBlockEnabled = false; // Set the flag to false if the script loads successfully
-                console.log('No adblocker detected');
                 resolve();
             };
 

@@ -1,4 +1,8 @@
 const constants = {
+    script: {
+        id: "adb-detection",
+        customerIdAttribute: "data-customer-id"
+    },
     popup: {
         id: "adblock-modal",
         headerClass: "header",

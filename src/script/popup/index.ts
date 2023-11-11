@@ -11,10 +11,12 @@ class Popup {
     content: Element
     hasCloseButton: boolean
     currentPage: string
+    customerId: string
 
     constructor(hasCloseButton: boolean, currentPage?: string) {
        this.hasCloseButton = hasCloseButton;
        this.currentPage = currentPage ?? 'home';
+       this.customerId = "";
     }
 
     public init(): void {
