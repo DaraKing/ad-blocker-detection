@@ -1,5 +1,6 @@
 import { QS } from "../helpers/DOM";
 import constants from "../constants/index";
+import api from "../api/index";
 
 class Detection {
     adBlockEnabled: boolean
@@ -29,18 +30,31 @@ class Detection {
             // Set up an onerror event handler
             script.onerror = () => {
                 this.adBlockEnabled = true; // Set the flag to true if the script fails to load
+                this.storeDataOnBackend();
                 resolve();
             };
 
             // Set up an onload event handler
             script.onload = () => {
                 this.adBlockEnabled = false; // Set the flag to false if the script loads successfully
+                this.storeDataOnBackend()
                 resolve();
             };
 
             // Append the script to the document
             document.head.appendChild(script);
         });
+    }
+
+    async storeDataOnBackend() {
+        console.log("Calling...")
+        api.get("/test")
+            .then((response: any) => {
+                console.log(response)
+            })
+            .error((error: any) => {
+                console.error(error)
+            })
     }
 
 }
