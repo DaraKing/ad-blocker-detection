@@ -1,6 +1,5 @@
 import { QS } from "../helpers/DOM";
 import constants from "../constants/index";
-import api from "../api/index";
 
 class Detection {
     adBlockEnabled: boolean
@@ -47,14 +46,13 @@ class Detection {
     }
 
     async storeDataOnBackend() {
-        console.log("Calling...")
-        api.get("/test")
+        /*api.get("/test")
             .then((response: any) => {
                 console.log(response)
             })
             .error((error: any) => {
                 console.error(error)
-            })
+            })*/
     }
 
 }

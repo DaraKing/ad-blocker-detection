@@ -1,8 +1,10 @@
+import { Campaign } from "../interfaces/campaign";
+
 class Page {
 
-    public renderHome(): string {
+    public renderHome(campaign: Campaign): string {
         return `
-        <img src='./static/icons/ad-block.svg' class='icon' alt='AdBlock icon' />
+        <img src='${campaign.image}' class='icon' alt='AdBlock icon' />
         <h1 class="title">You're using an Adblocker.</h1>
         <p class="subtitle">Ads are necessary for the smooth operation of our site. If you want to help, register or turn off your Adblocker.</p>
         <div class="buttons">
@@ -12,12 +14,12 @@ class Page {
         `;
     }
 
-    public renderTurnOffAdBlocker(): string {
+    public renderTurnOffAdBlocker(campaign: Campaign): string {
 
         return `
             <div id="page-turn-off-adblocker">
                 <section>
-                    <img src='./static/icons/ad-block.svg' class='icon' alt='AdBlock icon' />
+                    <img src='${campaign.image}' class='icon' alt='AdBlock icon' />
                     <h3>Disable Adblockers</h3>
                     <h5>HOW TO TURN OFF ADBLOCK PLUGIN ?</h5>
                     <p>Nobody likes ads but they are the necessary evil of almost every free service.

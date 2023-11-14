@@ -2,21 +2,24 @@ import {createElementWithClasses, createElementWithId, QS} from "../helpers/DOM"
 import constants from "../constants/index";
 import Page from "../page/index";
 import Component from "../component/index";
+import { Campaign } from "../interfaces/campaign";
 
 class Popup {
-    popup: Element
-    header: Element
-    body: Element
-    footer: Element
-    content: Element
+    popup: HTMLElement
+    header: HTMLElement
+    body: HTMLElement
+    footer: HTMLElement
+    content: HTMLElement
     hasCloseButton: boolean
     currentPage: string
     customerId: string
+    campaign: Campaign
 
     constructor(hasCloseButton: boolean, currentPage?: string) {
        this.hasCloseButton = hasCloseButton;
        this.currentPage = currentPage ?? 'home';
        this.customerId = "";
+       this.campaign = null;
     }
 
     public init(): void {
@@ -51,10 +54,10 @@ class Popup {
 
         switch (this.currentPage) {
             case constants.pages.home:
-                this.body.innerHTML = page.renderHome();
+                this.body.innerHTML = page.renderHome(this.campaign);
                 break;
             case constants.pages.turnOffAdBlocker:
-                this.body.innerHTML = page.renderTurnOffAdBlocker();
+                this.body.innerHTML = page.renderTurnOffAdBlocker(this.campaign);
                 break;
             default:
                 console.error("[404] Page not found!")
@@ -105,7 +108,6 @@ class Popup {
     }
 
     protected closeModal(e?: Event): void {
-        console.log("aaaa")
         this.content = null;
 
         this.detachEvents();
