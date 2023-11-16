@@ -1,4 +1,4 @@
-import {createElementWithClasses, createElementWithId, QS} from "../helpers/DOM";
+import { createElementWithClasses, createElementWithId, QS } from "../helpers/DOM";
 import constants from "../constants/index";
 import Page from "../page/index";
 import Component from "../component/index";
