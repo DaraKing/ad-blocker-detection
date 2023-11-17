@@ -14,8 +14,6 @@
 
 #adblock-modal .content {
   background: $color-background;
-  margin: auto;
-  width: 50%;
   position: relative;
   color: $color-primary;
   font-family: $font-primary;
@@ -25,6 +23,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 80%;
+  margin: 40px auto;
+
+  // For devices above 768px
+  @include respond-to('medium') {
+    width: 50%;
+    margin: auto;
+  }
 
   &::before {
     content: '';
