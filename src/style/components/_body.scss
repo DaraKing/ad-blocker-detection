@@ -1,0 +1,36 @@
+.body {
+  height: fit-content;
+  overflow: auto;
+  padding: 20px 40px;
+
+  .icon {
+    width: 96px;
+    height: 96px;
+    display: block;
+    margin: auto;
+  }
+
+  .title {
+    text-align: center;
+
+    &.upper {
+      color: #00122C;
+      font-family: "Aerle W01 Regular";
+      font-size: 4rem;
+    }
+
+    &.lower {
+      color: #00122C;
+      font-family: "Aerle W01 Regular";
+      font-size: 2.5rem;
+      margin: 15px 0;
+    }
+  }
+
+  .subtitle {
+    padding: 0 20px;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin: 7px 0 25px 0 !important;
+  }
+}

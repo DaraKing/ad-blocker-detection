@@ -8,7 +8,7 @@ class Page {
         <img src='${campaign?.image}' class='icon' alt='AdBlock icon' />
         <h1 class="title lower">You're using an Adblocker.</h1>
         <p class="subtitle">Ads are necessary for the smooth operation of our site. If you want to help, register or turn off your Adblocker.</p>
-        <div class="buttons">
+        <div class="action-buttons">
                 <button id="turn-off-adblocker">Turn off Adblocker</button>
                 <button id="without-turning">Proceed without turning off</button>
         </div>
