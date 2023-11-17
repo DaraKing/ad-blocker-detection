@@ -1,0 +1,81 @@
+.back-button {
+  background: #bdc3c7;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  flex: 1;
+  padding: 10px 15px;
+  color: #2c3e50;
+  font-size: 1rem;
+
+  &:hover {
+    cursor: pointer;
+    color: #ecf0f1;
+    -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+  }
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  #turn-off-adblocker {
+    background: #084469;
+    color: #F8FDE8;
+    margin-bottom: 12px;
+  }
+
+  #without-turning {
+    background: #DED5D2;
+    color: #8E4438;
+  }
+
+  button {
+    text-transform: uppercase;
+    border: 3px solid #06060E;
+    outline: none;
+    margin: 0 10px;
+    flex: 1;
+    padding: 10px 15px;
+    color: #2c3e50;
+    font-size: 1rem;
+    border-radius: 35px;
+    font-weight: 800;
+
+    &:hover {
+      cursor: pointer;
+      color: #ecf0f1;
+      -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+      -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+      box-shadow: 0 0 5px 0 rgba(0,0,0,0.75);
+    }
+  }
+}
+
+.close-button {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  width: 24px;
+  height: 24px;
+  background: #F5F5F5;
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: #111111;
+  border: 1px solid #111111;
+  font-weight: bold;
+  cursor: default;
+
+  &:hover {
+    cursor: pointer;
+    background: #DCDCDC;
+  }
+}

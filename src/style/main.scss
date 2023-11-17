@@ -1,6 +1,13 @@
-@import "fonts";
+@import "base/fonts";
+@import "base/typography";
 
-@import "./components/modal";
-@import "./components/buttons";
+@import "helpers/variables";
+@import "helpers/mixins";
 
-@import "./pages/turn-off-adblocker";
+@import "components/modal";
+@import "components/buttons";
+@import "components/body";
+@import "components/header";
+@import "components/footer";
+
+@import "pages/turn-off-adblocker";

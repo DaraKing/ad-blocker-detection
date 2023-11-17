@@ -1,0 +1,17 @@
+@mixin respond-to($name) {
+  @if map-has-key($breakpoints, $name) {
+    $breakpoint: map-get($breakpoints, $name);
+
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$name}.';
+  }
+}
+
+@mixin box-shadow($x, $y, $blur, $spread, $color) {
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -moz-box-shadow: $x $y $blur $spread $color;
+  box-shadow: $x $y $blur $spread $color;
+}
