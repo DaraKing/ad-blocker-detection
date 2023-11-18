@@ -20,6 +20,7 @@ const constants = {
     apiEndpoints: {
         campaignInit: "/api/campaign/init/",
         userVisit: "/api/user/visit",
+        userInteraction: "/api/user/interaction",
     }
 };
 

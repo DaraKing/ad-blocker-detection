@@ -3,7 +3,9 @@ import constants from "../constants/index";
 import Page from "../page/index";
 import Component from "../component/index";
 import Detection from "../detection";
-import {PopupOptions} from "../interfaces/popup";
+import { PopupOptions } from "../interfaces/popup";
+import { UserAction, UserInteractionRequestBody } from "../interfaces/api";
+import { storeUserInteraction } from "../api/services";
 
 class Popup extends Detection {
     popup: HTMLElement
@@ -74,19 +76,37 @@ class Popup extends Detection {
     }
 
     protected dispatchEvents(): void {
-        QS(`.${constants.popup.closeButtonClass}`) ? QS(`.${constants.popup.closeButtonClass}`).addEventListener("click", () => this.closeModal(), true) : null;
-        QS(`#${constants.popup.proceedWithoutTurning}`) ? QS(`#${constants.popup.proceedWithoutTurning}`).addEventListener("click", () => this.closeModal(), true) : null;
-        QS(`#${constants.pages.turnOffAdBlocker}`) ? QS(`#${constants.pages.turnOffAdBlocker}`).addEventListener("click", () => this.changePage(constants.pages.turnOffAdBlocker), true) : null;
+        QS(`.${constants.popup.closeButtonClass}`) ? QS(`.${constants.popup.closeButtonClass}`).addEventListener("click", (evt) => this.closeModal(evt), true) : null;
+        QS(`#${constants.popup.proceedWithoutTurning}`) ? QS(`#${constants.popup.proceedWithoutTurning}`).addEventListener("click", (evt) => this.closeModal(evt), true) : null;
+        QS(`#${constants.pages.turnOffAdBlocker}`) ? QS(`#${constants.pages.turnOffAdBlocker}`).addEventListener("click", (evt) => this.changePage(constants.pages.turnOffAdBlocker, evt), true) : null;
         QS(`.${constants.popup.backButtonClass}`) ? QS(`.${constants.popup.backButtonClass}`).addEventListener("click", (evt) => this.returnBack(evt), true) : null;
     }
 
     protected detachEvents(): void {
-        QS(`.${constants.popup.closeButtonClass}`) ? QS(`.${constants.popup.closeButtonClass}`).removeEventListener("click", () => this.closeModal(), true) : null;
-        QS(`#${constants.pages.turnOffAdBlocker}`) ? QS(`#${constants.pages.turnOffAdBlocker}`).removeEventListener("click", () => this.changePage(constants.pages.turnOffAdBlocker), true) : null;
+        QS(`.${constants.popup.closeButtonClass}`) ? QS(`.${constants.popup.closeButtonClass}`).removeEventListener("click", (evt) => this.closeModal(evt), true) : null;
+        QS(`#${constants.popup.proceedWithoutTurning}`) ? QS(`#${constants.popup.proceedWithoutTurning}`).removeEventListener("click", (evt) => this.closeModal(evt), true) : null;
+        QS(`#${constants.pages.turnOffAdBlocker}`) ? QS(`#${constants.pages.turnOffAdBlocker}`).removeEventListener("click", (evt) => this.changePage(constants.pages.turnOffAdBlocker, evt), true) : null;
         QS(`.${constants.popup.backButtonClass}`) ? QS(`.${constants.popup.backButtonClass}`).removeEventListener("click", (evt) => this.returnBack(evt), true) : null;
     }
 
-    protected changePage(page: string): void {
+    protected storeInteraction(event: Event, action: UserAction): void {
+        if (!event) return;
+
+        const clickedElement = event.target as HTMLElement;
+        const id = clickedElement?.id;
+
+        let requestBody: UserInteractionRequestBody = {
+            interaction_type: action,
+            object_id: id,
+            additional_data: "",
+            campaign_id: this.campaign.campaign_id
+        };
+
+        storeUserInteraction(requestBody);
+    }
+
+    protected changePage(page: string, e?: Event): void {
+        this.storeInteraction(e, UserAction.Click);
         this.currentPage = page;
         this.detachEvents();
         this.pageRender();
@@ -103,10 +123,11 @@ class Popup extends Detection {
             return;
         }
 
-        this.changePage(e.target.dataset.src.toString())
+        this.changePage(e.target.dataset.src.toString(), e)
     }
 
     protected closeModal(e?: Event): void {
+        this.storeInteraction(e, UserAction.Click);
         this.content = null;
 
         this.detachEvents();

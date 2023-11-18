@@ -3,7 +3,7 @@ import constants from "../constants/index";
 import { Campaign } from "../interfaces/campaign";
 import {campaignInit, storeUserVisit} from "../api/services";
 import { DetectionOptions } from "../interfaces/detection";
-import {UserVisitRequestBody} from "../interfaces/api";
+import { UserVisitRequestBody } from "../interfaces/api";
 
 class Detection {
     adBlockEnabled: boolean
@@ -42,14 +42,14 @@ class Detection {
             script.onerror = async () => {
                 this.adBlockEnabled = true; // Set the flag to true if the script fails to load
                 body.adblock_user = true;
-                await storeUserVisit(body);
+                storeUserVisit(body);
                 resolve();
             };
 
             // Set up an onload event handler
             script.onload = async () => {
                 this.adBlockEnabled = false; // Set the flag to false if the script loads successfully
-                await storeUserVisit(body);
+                storeUserVisit(body);
                 resolve();
             };
 

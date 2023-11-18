@@ -43,7 +43,7 @@ class Page {
                     <p class="whitelist-adblock-text">Click the adblock plus icon <br/>
                     Click <span class="text-bolded">Don’t run on pages on this domain</span></p>
                 </section>
-                <button class="back-button" data-src="home">Back</button>
+                <button class="back-button" id="return-back" data-src="home">Back</button>
             </div>
         `
     }
