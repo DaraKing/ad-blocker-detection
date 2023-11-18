@@ -75,6 +75,7 @@ class Popup extends Detection {
 
     protected dispatchEvents(): void {
         QS(`.${constants.popup.closeButtonClass}`) ? QS(`.${constants.popup.closeButtonClass}`).addEventListener("click", () => this.closeModal(), true) : null;
+        QS(`#${constants.popup.proceedWithoutTurning}`) ? QS(`#${constants.popup.proceedWithoutTurning}`).addEventListener("click", () => this.closeModal(), true) : null;
         QS(`#${constants.pages.turnOffAdBlocker}`) ? QS(`#${constants.pages.turnOffAdBlocker}`).addEventListener("click", () => this.changePage(constants.pages.turnOffAdBlocker), true) : null;
         QS(`.${constants.popup.backButtonClass}`) ? QS(`.${constants.popup.backButtonClass}`).addEventListener("click", (evt) => this.returnBack(evt), true) : null;
     }

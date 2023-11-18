@@ -10,7 +10,7 @@ class Page {
         <p class="subtitle">Ads are necessary for the smooth operation of our site. If you want to help, register or turn off your Adblocker.</p>
         <div class="action-buttons">
                 <button id="turn-off-adblocker">Turn off Adblocker</button>
-                <button id="without-turning">Proceed without turning off</button>
+                <button id="proceed-without-turning">Proceed without turning off</button>
         </div>
         `;
     }

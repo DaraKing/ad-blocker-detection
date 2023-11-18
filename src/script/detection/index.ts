@@ -58,16 +58,6 @@ class Detection {
         });
     }
 
-    async storeDataOnBackend() {
-        /*api.get("/test")
-            .then((response: any) => {
-                console.log(response)
-            })
-            .error((error: any) => {
-                console.error(error)
-            })*/
-    }
-
 }
 
 export default Detection;

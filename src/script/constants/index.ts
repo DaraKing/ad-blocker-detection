@@ -10,7 +10,8 @@ const constants = {
         footerClass: "footer",
         contentClasses: ["content"],
         closeButtonClass: "close-button",
-        backButtonClass: "back-button"
+        backButtonClass: "back-button",
+        proceedWithoutTurning: "proceed-without-turning"
     },
     pages: {
         home: "home",
