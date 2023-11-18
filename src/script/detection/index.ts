@@ -1,18 +1,24 @@
 import { QS } from "../helpers/DOM";
 import constants from "../constants/index";
+import { Campaign } from "../interfaces/campaign";
+import { campaignInit } from "../api/services";
+import { IDetection } from "../interfaces/detection";
 
 class Detection {
     adBlockEnabled: boolean
     customerId: string
+    campaign: Campaign
 
-    constructor() {
-        this.adBlockEnabled = false;
-        this.initiate();
+    constructor(options: IDetection) {
+        this.adBlockEnabled = options.adBlockEnabled ?? false;
+        this.customerId = options.customerId ?? "";
+        this.campaign = options.campaign ?? null;
     }
 
-    initiate() {
+    async initialize(): Promise<void> {
         const scriptTag = document.currentScript || QS(`#${constants.script.id}`);
-        this.customerId = scriptTag.getAttribute(constants.script.customerIdAttribute);
+        this.customerId = scriptTag?.getAttribute(constants.script.customerIdAttribute);
+        this.campaign = await campaignInit(this.customerId) ?? null;
     }
 
     async check(): Promise<void> {

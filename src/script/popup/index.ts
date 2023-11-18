@@ -2,9 +2,10 @@ import { createElementWithClasses, createElementWithId, QS } from "../helpers/DO
 import constants from "../constants/index";
 import Page from "../page/index";
 import Component from "../component/index";
-import { Campaign } from "../interfaces/campaign";
+import Detection from "../detection";
+import {IPopup} from "../interfaces/popup";
 
-class Popup {
+class Popup extends Detection {
     popup: HTMLElement
     header: HTMLElement
     body: HTMLElement
@@ -12,14 +13,11 @@ class Popup {
     content: HTMLElement
     hasCloseButton: boolean
     currentPage: string
-    customerId: string
-    campaign: Campaign
 
-    constructor(hasCloseButton: boolean, currentPage?: string) {
-       this.hasCloseButton = hasCloseButton;
-       this.currentPage = currentPage ?? 'home';
-       this.customerId = "";
-       this.campaign = null;
+    constructor(options: IPopup) {
+       super(options);
+       this.hasCloseButton = options.hasCloseButton;
+       this.currentPage = options.currentPage ?? 'home';
     }
 
     public init(): void {
