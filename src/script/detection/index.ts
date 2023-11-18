@@ -1,8 +1,9 @@
 import { QS } from "../helpers/DOM";
 import constants from "../constants/index";
 import { Campaign } from "../interfaces/campaign";
-import { campaignInit } from "../api/services";
+import {campaignInit, storeUserVisit} from "../api/services";
 import { DetectionOptions } from "../interfaces/detection";
+import {UserVisitRequestBody} from "../interfaces/api";
 
 class Detection {
     adBlockEnabled: boolean
@@ -28,21 +29,27 @@ class Detection {
                 resolve();
             }
 
+            let body: UserVisitRequestBody = {
+                campaign_id: this.campaign.campaign_id,
+                adblock_user: false,
+            };
+
             // Create a new script element
             const script = document.createElement('script');
             script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
 
             // Set up an onerror event handler
-            script.onerror = () => {
+            script.onerror = async () => {
                 this.adBlockEnabled = true; // Set the flag to true if the script fails to load
-                this.storeDataOnBackend();
+                body.adblock_user = true;
+                await storeUserVisit(body);
                 resolve();
             };
 
             // Set up an onload event handler
-            script.onload = () => {
+            script.onload = async () => {
                 this.adBlockEnabled = false; // Set the flag to false if the script loads successfully
-                this.storeDataOnBackend()
+                await storeUserVisit(body);
                 resolve();
             };
 

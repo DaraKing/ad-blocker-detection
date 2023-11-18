@@ -13,8 +13,12 @@ const constants = {
         backButtonClass: "back-button"
     },
     pages: {
-        home: 'home',
-        turnOffAdBlocker: 'turn-off-adblocker'
+        home: "home",
+        turnOffAdBlocker: "turn-off-adblocker"
+    },
+    apiEndpoints: {
+        campaignInit: "/api/campaign/init/",
+        userVisit: "/api/user/visit",
     }
 };
 
