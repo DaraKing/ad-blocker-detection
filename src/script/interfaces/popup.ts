@@ -1,6 +1,6 @@
-import { IDetection } from "./detection";
+import { DetectionOptions } from "./detection";
 
-export interface IPopup extends IDetection {
+export interface PopupOptions extends DetectionOptions {
     hasCloseButton?: boolean
     currentPage?: string
 }

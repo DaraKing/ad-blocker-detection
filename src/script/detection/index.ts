@@ -2,14 +2,14 @@ import { QS } from "../helpers/DOM";
 import constants from "../constants/index";
 import { Campaign } from "../interfaces/campaign";
 import { campaignInit } from "../api/services";
-import { IDetection } from "../interfaces/detection";
+import { DetectionOptions } from "../interfaces/detection";
 
 class Detection {
     adBlockEnabled: boolean
     customerId: string
     campaign: Campaign
 
-    constructor(options: IDetection) {
+    constructor(options: DetectionOptions) {
         this.adBlockEnabled = options.adBlockEnabled ?? false;
         this.customerId = options.customerId ?? "";
         this.campaign = options.campaign ?? null;

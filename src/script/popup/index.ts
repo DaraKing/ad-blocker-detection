@@ -3,7 +3,7 @@ import constants from "../constants/index";
 import Page from "../page/index";
 import Component from "../component/index";
 import Detection from "../detection";
-import {IPopup} from "../interfaces/popup";
+import {PopupOptions} from "../interfaces/popup";
 
 class Popup extends Detection {
     popup: HTMLElement
@@ -14,7 +14,7 @@ class Popup extends Detection {
     hasCloseButton: boolean
     currentPage: string
 
-    constructor(options: IPopup) {
+    constructor(options: PopupOptions) {
        super(options);
        this.hasCloseButton = options.hasCloseButton;
        this.currentPage = options.currentPage ?? 'home';
